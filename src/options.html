@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIUBY Guard no navegador</title>
+  <style>
+    :root { color-scheme: dark; }
+    body { margin: 0; padding: 32px 16px; background: #000000; color: #FFFFFF; font: 13px/1.6 ui-monospace, Menlo, Consolas, monospace; }
+    main { max-width: 640px; margin: 0 auto; }
+    .eyebrow { color: #8A999C; font-size: 11px; letter-spacing: .08em; margin: 0 0 4px; }
+    h1 { font-size: 20px; margin: 0 0 16px; }
+    p { margin: 0 0 12px; color: #8A999C; }
+    label { display: block; margin: 0 0 16px; color: #8A999C; font-size: 11px; }
+    input { display: block; box-sizing: border-box; width: 100%; margin-top: 4px; padding: 10px 12px; background: #0A0C0D; color: #FFFFFF; border: 1px solid #006B7A; font: inherit; }
+    input:focus { outline: none; border-color: #12A8BE; }
+    button { margin: 0 8px 8px 0; padding: 8px 14px; background: #0A0C0D; color: #FFFFFF; border: 1px solid #171D1F; font: inherit; font-size: 12px; cursor: pointer; }
+    button.primary { background: #12A8BE; color: #000000; border-color: #12A8BE; }
+    button:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
+    #status { min-height: 1.6em; color: #FFFFFF; border-left: 2px solid #12A8BE; padding-left: 10px; white-space: pre-wrap; }
+    section { margin-top: 24px; padding-top: 16px; border-top: 1px solid #171D1F; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">AIUBY GUARD</p>
+    <h1>Guard no navegador</h1>
+    <p>Confere o texto que você cola ou envia nos sites de IA da lista da empresa, conforme a política do workspace na plataforma AIUBY. O texto não é guardado na plataforma.</p>
+    <form id="form">
+      <label>Endereço da plataforma
+        <input id="platform" type="url" placeholder="https://aiuby.com" autocomplete="off" required>
+      </label>
+      <label>Credencial (escopo guard:decide)
+        <input id="token" type="password" placeholder="aiuby_..." autocomplete="off" spellcheck="false" required>
+      </label>
+      <button class="primary" type="submit">Salvar e testar conexão</button>
+      <button id="clear" type="button">Remover credencial</button>
+    </form>
+    <p id="status" role="status"></p>
+    <section>
+      <p>Sites de IA além da lista padrão, cadastrados pelo workspace, precisam da sua permissão, um por um.</p>
+      <button id="extra" type="button">Ativar nos destinos do workspace</button>
+    </section>
+    <section>
+      <p>Cobre os campos de texto dos sites listados neste navegador. Não cobre aplicativos de desktop ou celular, outros navegadores, o conteúdo de arquivos anexados (só o nome é conferido), nem é um proxy de rede.</p>
+    </section>
+  </main>
+  <script src="logic.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "aiuby-guard-extension",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Extensão de navegador do AIUBY Guard: confere o texto colado ou enviado em ferramentas de IA conforme a política da empresa.",
+  "license": "Apache-2.0",
+  "repository": { "type": "git", "url": "git+https://github.com/aiuby-ai/guard-extension.git" },
+  "scripts": {
+    "test": "vitest run",
+    "package": "node scripts/package.mjs"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.0",
+    "@types/node": "^22.0.0"
+  }
+}

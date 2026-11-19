@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "AIUBY Guard no navegador",
+  "short_name": "Guard AIUBY",
+  "version": "1.1.0",
+  "description": "Confere o texto colado ou enviado em ferramentas de IA conforme a política da empresa na plataforma AIUBY.",
+  "minimum_chrome_version": "110",
+  "permissions": ["storage", "scripting"],
+  "host_permissions": [
+    "https://aiuby.com/*",
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://gemini.google.com/*",
+    "https://claude.ai/*",
+    "https://copilot.microsoft.com/*",
+    "https://chat.deepseek.com/*",
+    "https://www.perplexity.ai/*"
+  ],
+  "optional_host_permissions": ["https://*/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://gemini.google.com/*",
+        "https://claude.ai/*",
+        "https://copilot.microsoft.com/*",
+        "https://chat.deepseek.com/*",
+        "https://www.perplexity.ai/*"
+      ],
+      "js": ["logic.js", "content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "options_page": "options.html"
+}
